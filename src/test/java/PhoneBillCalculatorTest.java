@@ -1,10 +1,16 @@
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
+import org.mockito.Mockito;
 import uk.gov.dwp.BillCalculator;
 
+import java.io.InvalidClassException;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
+import static org.mockito.Mockito.when;
 
 public class PhoneBillCalculatorTest {
+
     @Test
     @DisplayName("Given a single phone log, return total cost")
     public void givenASinglePhoneLogReturnTotalCost(){
@@ -19,6 +25,15 @@ public class PhoneBillCalculatorTest {
         BillCalculator billCalculator = new BillCalculator();
         int result = billCalculator.calculateBill("00:01:07,400-234-090\n00:05:01,701-080-080\n00:05:00,400-234-090");
         assertEquals("Should return 900 as total cost", 900, result);
+    }
+
+    @Test
+    @DisplayName("Given an empty phone log, calculateBill should throw an exception")
+    public void givenAnEmptyPhoneLogThrowAnExpection(){
+        BillCalculator billCalculator = new BillCalculator();
+        assertThrows(RuntimeException.class, () -> {
+            billCalculator.calculateBill("");
+        });
     }
 
 }

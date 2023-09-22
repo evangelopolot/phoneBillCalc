@@ -12,6 +12,11 @@ public class BillCalculator {
     private static final int RATE_FOR_MINUTES = 150;
 
     public int calculateBill(final String phoneLogInput) {
+
+        if(phoneLogInput.isEmpty()){
+            throw new RuntimeException("Empty phone log");
+        }
+
         String[] phoneLogLines = phoneLogInput.split("\n");
 
         for(String phoneLogLine : phoneLogLines){
