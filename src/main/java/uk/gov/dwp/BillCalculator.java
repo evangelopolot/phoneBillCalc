@@ -3,7 +3,7 @@ package uk.gov.dwp;
 import java.util.HashMap;
 
 public class BillCalculator {
-    private HashMap<String, Integer> logs = new HashMap<>();
+    private final HashMap<String, Integer> logs = new HashMap<>();
     private int longestCallDuration = 0;
     private String numberWithLongestCallDuration = "";
     private static final int HOUR_IN_SECONDS = 3600;
@@ -45,6 +45,7 @@ public class BillCalculator {
         logs.put(phoneNumber, logs.getOrDefault(phoneNumber, 0) + callDurationInSeconds);
         updateLongestCall(phoneNumber);
         System.out.println("Evangel");
+        System.out.println(1);
 
     }
 
