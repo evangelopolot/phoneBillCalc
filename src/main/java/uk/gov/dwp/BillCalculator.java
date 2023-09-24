@@ -44,9 +44,6 @@ public class BillCalculator {
     private void updateCallDurations(String phoneNumber, int callDurationInSeconds){
         logs.put(phoneNumber, logs.getOrDefault(phoneNumber, 0) + callDurationInSeconds);
         updateLongestCall(phoneNumber);
-        System.out.println("Evangel");
-        System.out.println(1);
-
     }
 
     private void updateLongestCall(String phoneNumber){
