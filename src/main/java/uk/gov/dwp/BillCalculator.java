@@ -44,22 +44,13 @@ public class BillCalculator {
     private void updateCallDurations(String phoneNumber, int callDurationInSeconds){
         logs.put(phoneNumber, logs.getOrDefault(phoneNumber, 0) + callDurationInSeconds);
         updateLongestCall(phoneNumber);
+
     }
 
     private void updateLongestCall(String phoneNumber){
         if(logs.get(phoneNumber) > longestCallDuration){
             longestCallDuration = logs.get(phoneNumber);
             numberWithLongestCallDuration = phoneNumber;
-
-        } else if(logs.get(phoneNumber) == longestCallDuration){
-
-            String currentNumber = phoneNumber.replaceAll("-","");
-            String longestDurationNumber = numberWithLongestCallDuration.replaceAll("-","");
-            int currentNumberNumeric = Integer.parseInt(currentNumber);
-            int longestDurationNumberNumeric = Integer.parseInt(longestDurationNumber);
-            if(currentNumberNumeric < longestDurationNumberNumeric){
-                numberWithLongestCallDuration = phoneNumber;
-            }
         }
     }
 

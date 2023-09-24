@@ -3,8 +3,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.mockito.Mockito;
 import uk.gov.dwp.BillCalculator;
 
-import java.io.InvalidClassException;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 import static org.mockito.Mockito.when;
@@ -35,5 +33,14 @@ public class PhoneBillCalculatorTest {
             billCalculator.calculateBill("");
         });
     }
+
+//    @Test
+//    @DisplayName("Given an unrecognised rateId, getRate should return null")
+//    public void givenAnUnrecgonisedRateIdGetRateReturnsNull(){
+//        BillCalculator billCalculator = new BillCalculator();
+//        RateData rateData = new RateData();
+//        ChargeRateInterface chargeRateInterface = Mockito.mock(ChargeRateInterface.class);
+//        when(chargeRateInterface.getRate(1)).thenReturn(null);
+//    }
 
 }

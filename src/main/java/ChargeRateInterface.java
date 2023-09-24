@@ -1,3 +1,3 @@
 public interface ChargeRateInterface {
-    void getRate(int i);
+    RateData getRate(int i);
 }
